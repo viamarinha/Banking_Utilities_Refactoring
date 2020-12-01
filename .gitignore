@@ -32,4 +32,6 @@ hs_err_pid*
 .idea/modules.xml
 .idea/sonarlint/
 .idea/vcs.xml
+*.idea
 BankingUtilities.iml
+.idea/jarRepositories.xml
