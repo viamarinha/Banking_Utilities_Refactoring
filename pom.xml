@@ -4,6 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
+    <modules>
+        <module>Dialogs</module>
+        <module>Banking_functionality</module>
+    </modules>
 
     <groupId>dev.andrylat</groupId>
     <artifactId>banking-utilities</artifactId>
