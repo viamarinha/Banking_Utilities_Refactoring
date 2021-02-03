@@ -1,5 +1,6 @@
 package io.swagger.api;
 
+import dev.andrylat.bankingfunctionality.card.exceptions.CardValidatorException;
 import io.swagger.model.*;
 import io.swagger.api.ValidationApiService;
 import io.swagger.api.factories.ValidationApiServiceFactory;
@@ -74,7 +75,7 @@ import javax.validation.constraints.*;
     public Response validationPost(@Parameter(in = ParameterIn.DEFAULT, description = "Obtain information about Valid Credit  and payment system" ,required=true) Cardnumber body
 
 ,@Context SecurityContext securityContext)
-    throws NotFoundException {
+            throws NotFoundException, CardValidatorException {
         return delegate.validationPost(body,securityContext);
     }
 }
