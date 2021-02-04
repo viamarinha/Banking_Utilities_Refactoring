@@ -22,7 +22,7 @@ import javax.validation.Valid;
 /**
  * InlineResponse4001
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2021-01-25T01:46:26.939Z[GMT]")public class InlineResponse4001   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2021-02-03T20:38:19.474Z[GMT]")public class InlineResponse4001   {
   @JsonProperty("validation")
   private Boolean validation = null;
 
@@ -69,7 +69,7 @@ import javax.validation.Valid;
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -102,7 +102,7 @@ import javax.validation.Valid;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

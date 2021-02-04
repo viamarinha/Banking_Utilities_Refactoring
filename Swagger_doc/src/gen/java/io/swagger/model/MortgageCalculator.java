@@ -14,17 +14,14 @@ package io.swagger.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.model.PayementPeriod;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
-import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * MortgageCalculator
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2021-01-25T01:46:26.939Z[GMT]")public class MortgageCalculator   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2021-02-03T20:38:19.474Z[GMT]")public class MortgageCalculator   {
   @JsonProperty("principal amount")
   private Integer principalAmount = null;
 
@@ -35,7 +32,7 @@ import javax.validation.Valid;
   private Integer timeInYears = null;
 
   @JsonProperty("payement period")
-  private PayementPeriod payementPeriod = null;
+  private PaymentPeriod paymentPeriod = null;
 
   public MortgageCalculator principalAmount(Integer principalAmount) {
     this.principalAmount = principalAmount;
@@ -95,8 +92,8 @@ import javax.validation.Valid;
     this.timeInYears = timeInYears;
   }
 
-  public MortgageCalculator payementPeriod(PayementPeriod payementPeriod) {
-    this.payementPeriod = payementPeriod;
+  public MortgageCalculator payementPeriod(PaymentPeriod paymentPeriod) {
+    this.paymentPeriod = paymentPeriod;
     return this;
   }
 
@@ -107,17 +104,17 @@ import javax.validation.Valid;
   @JsonProperty("payement period")
   @Schema(description = "")
   @Valid
-  public PayementPeriod getPayementPeriod() {
-    return payementPeriod;
+  public PaymentPeriod getPayementPeriod() {
+    return paymentPeriod;
   }
 
-  public void setPayementPeriod(PayementPeriod payementPeriod) {
-    this.payementPeriod = payementPeriod;
+  public void setPayementPeriod(PaymentPeriod paymentPeriod) {
+    this.paymentPeriod = paymentPeriod;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -128,12 +125,12 @@ import javax.validation.Valid;
     return Objects.equals(this.principalAmount, mortgageCalculator.principalAmount) &&
         Objects.equals(this.interestRate, mortgageCalculator.interestRate) &&
         Objects.equals(this.timeInYears, mortgageCalculator.timeInYears) &&
-        Objects.equals(this.payementPeriod, mortgageCalculator.payementPeriod);
+        Objects.equals(this.paymentPeriod, mortgageCalculator.paymentPeriod);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(principalAmount, interestRate, timeInYears, payementPeriod);
+    return Objects.hash(principalAmount, interestRate, timeInYears, paymentPeriod);
   }
 
 
@@ -145,7 +142,7 @@ import javax.validation.Valid;
     sb.append("    principalAmount: ").append(toIndentedString(principalAmount)).append("\n");
     sb.append("    interestRate: ").append(toIndentedString(interestRate)).append("\n");
     sb.append("    timeInYears: ").append(toIndentedString(timeInYears)).append("\n");
-    sb.append("    payementPeriod: ").append(toIndentedString(payementPeriod)).append("\n");
+    sb.append("    payementPeriod: ").append(toIndentedString(paymentPeriod)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -154,7 +151,7 @@ import javax.validation.Valid;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

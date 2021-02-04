@@ -28,17 +28,32 @@ import javax.validation.constraints.*;
     public Response mortgagecalculationPost(MortgageCalculator body, SecurityContext securityContext) throws NotFoundException {
 
         MortgagePayment mortgagePayment = new MortgagePaymentImpl();
-        CustomerData customerData = new CustomerData(body.getPrincipalAmount(), body.getInterestRate().doubleValue(), body.getTimeInYears(), body.getPayementPeriod().getYearly());
+        int paymenByPeriod ;
+
         try {
-            mortgagePayment.setMortgageDetails(customerData);
-            mortgagePayment.paymentCalculation();
-        }catch (IllegalArgumentException ex){
-            InlineResponse400 response = new InlineResponse400();
+            String paymentPeriod = body.getPayementPeriod().toString();
+
+            if (paymentPeriod.equals("yearly")) {
+                paymenByPeriod = 1;
+            } else if (paymentPeriod.equals("monthly")) {
+                paymenByPeriod = 2;
+            } else if (paymentPeriod.equals("weekly")) {
+                paymenByPeriod = 3;
+            } else {
+                throw new Exception("Your data have an incorrect format");
+            }
+        }catch (Exception ex){
+            InlineResponse4001 response = new InlineResponse4001();
+            response.setValidation(false);
             response.setValidationMessage(ex.getMessage());
             return Response.status(Response.Status.BAD_REQUEST).entity(response).build();
+
         }
+        CustomerData customerData = new CustomerData(body.getPrincipalAmount(), body.getInterestRate().doubleValue(), body.getTimeInYears(), paymenByPeriod);
 
+        mortgagePayment.setMortgageDetails(customerData);
 
+         mortgagePayment.paymentCalculation();
 
         InlineResponse2001 response = new InlineResponse2001();
         response.setValidation(true);
