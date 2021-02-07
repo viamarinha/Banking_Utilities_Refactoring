@@ -31,13 +31,13 @@ import javax.validation.constraints.*;
         double paymentPeriodId ;
            System.err.println("Body = " + body);
         try {
-            PaymentPeriod payementPeriod = body.getPayementPeriod();
+            PaymentPeriod paymentPeriod = body.getPayementPeriod();
 
-            if (payementPeriod == PaymentPeriod.YEARLY) {
+            if (paymentPeriod == PaymentPeriod.YEARLY) {
                 paymentPeriodId = 1;
-            } else if (payementPeriod == PaymentPeriod.MONTHLY) {
+            } else if (paymentPeriod == PaymentPeriod.MONTHLY) {
                 paymentPeriodId = 2;
-            } else if (payementPeriod == PaymentPeriod.WEEKLY) {
+            } else if (paymentPeriod == PaymentPeriod.WEEKLY) {
                 paymentPeriodId = 3;
             } else {
                 throw new Exception("Your data have an incorrect format");
