@@ -1,5 +1,7 @@
-FROM jetty:latestf
+FROM tomcat:latest
 
-COPY Swagger_doc/target/swagger-jaxrs-server-1.0.0.war /swagger-jaxrs-server-1.0.0.war
+EXPOSE 8085
 
-CMD ["java", "-war", "swagger-jaxrs-server-1.0.0.war"]
+COPY Webapp/target/swagger-jaxrs-server-1.0.0.war /usr/local/tomcat/webapps/
+
+CMD ["catalina.sh", "-run"]
