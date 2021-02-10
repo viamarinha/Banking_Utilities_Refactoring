@@ -12,25 +12,22 @@
 
 package io.swagger.model;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.math.BigDecimal;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import java.util.Objects;
 
 /**
- * InlineResponse2001
+ * InlineResponse400
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2021-01-25T01:46:26.939Z[GMT]")public class InlineResponse2001   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2021-01-25T01:46:26.939Z[GMT]")public class InlineResponse400   {
   @JsonProperty("validation")
   private Boolean validation = null;
 
-  @JsonProperty("mortgage amount")
-  private BigDecimal mortgageAmount = null;
+  @JsonProperty("validation-message")
+  private String validationMessage = null;
 
-  public InlineResponse2001 validation(Boolean validation) {
+  public InlineResponse400 validation(Boolean validation) {
     this.validation = validation;
     return this;
   }
@@ -40,7 +37,7 @@ import javax.validation.Valid;
    * @return validation
    **/
   @JsonProperty("validation")
-  @Schema(example = "true", description = "")
+  @Schema(example = "false", description = "")
   public Boolean isValidation() {
     return validation;
   }
@@ -49,24 +46,23 @@ import javax.validation.Valid;
     this.validation = validation;
   }
 
-  public InlineResponse2001 mortgageAmount(BigDecimal mortgageAmount) {
-    this.mortgageAmount = mortgageAmount;
+  public InlineResponse400 validationMessage(String validationMessage) {
+    this.validationMessage = validationMessage;
     return this;
   }
 
   /**
-   * Get mortgageAmount
-   * @return mortgageAmount
+   * Get validationMessage
+   * @return validationMessage
    **/
-  @JsonProperty("mortgage amount")
-  @Schema(example = "154.55", description = "")
-  @Valid
-  public BigDecimal getMortgageAmount() {
-    return mortgageAmount;
+  @JsonProperty("validation-message")
+  @Schema(example = "Too short number", description = "")
+  public String getValidationMessage() {
+    return validationMessage;
   }
 
-  public void setMortgageAmount(BigDecimal mortgageAmount) {
-    this.mortgageAmount = mortgageAmount;
+  public void setValidationMessage(String validationMessage) {
+    this.validationMessage = validationMessage;
   }
 
 
@@ -78,24 +74,24 @@ import javax.validation.Valid;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse2001 inlineResponse2001 = (InlineResponse2001) o;
-    return Objects.equals(this.validation, inlineResponse2001.validation) &&
-        Objects.equals(this.mortgageAmount, inlineResponse2001.mortgageAmount);
+    InlineResponse400 inlineResponse400 = (InlineResponse400) o;
+    return Objects.equals(this.validation, inlineResponse400.validation) &&
+        Objects.equals(this.validationMessage, inlineResponse400.validationMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validation, mortgageAmount);
+    return Objects.hash(validation, validationMessage);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse2001 {\n");
+    sb.append("class InlineResponse400 {\n");
     
     sb.append("    validation: ").append(toIndentedString(validation)).append("\n");
-    sb.append("    mortgageAmount: ").append(toIndentedString(mortgageAmount)).append("\n");
+    sb.append("    validationMessage: ").append(toIndentedString(validationMessage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

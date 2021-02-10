@@ -12,24 +12,22 @@
 
 package io.swagger.model;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+
+import java.util.Objects;
 
 /**
- * InlineResponse400
+ * InlineResponse4001
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2021-01-25T01:46:26.939Z[GMT]")public class InlineResponse400   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2021-02-03T20:38:19.474Z[GMT]")public class InlineResponse4001   {
   @JsonProperty("validation")
   private Boolean validation = null;
 
   @JsonProperty("validation-message")
   private String validationMessage = null;
 
-  public InlineResponse400 validation(Boolean validation) {
+  public InlineResponse4001 validation(Boolean validation) {
     this.validation = validation;
     return this;
   }
@@ -48,7 +46,7 @@ import javax.validation.Valid;
     this.validation = validation;
   }
 
-  public InlineResponse400 validationMessage(String validationMessage) {
+  public InlineResponse4001 validationMessage(String validationMessage) {
     this.validationMessage = validationMessage;
     return this;
   }
@@ -58,7 +56,7 @@ import javax.validation.Valid;
    * @return validationMessage
    **/
   @JsonProperty("validation-message")
-  @Schema(example = "Too short number", description = "")
+  @Schema(example = "you entered wrong data", description = "")
   public String getValidationMessage() {
     return validationMessage;
   }
@@ -69,16 +67,16 @@ import javax.validation.Valid;
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse400 inlineResponse400 = (InlineResponse400) o;
-    return Objects.equals(this.validation, inlineResponse400.validation) &&
-        Objects.equals(this.validationMessage, inlineResponse400.validationMessage);
+    InlineResponse4001 inlineResponse4001 = (InlineResponse4001) o;
+    return Objects.equals(this.validation, inlineResponse4001.validation) &&
+        Objects.equals(this.validationMessage, inlineResponse4001.validationMessage);
   }
 
   @Override
@@ -90,7 +88,7 @@ import javax.validation.Valid;
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse400 {\n");
+    sb.append("class InlineResponse4001 {\n");
     
     sb.append("    validation: ").append(toIndentedString(validation)).append("\n");
     sb.append("    validationMessage: ").append(toIndentedString(validationMessage)).append("\n");
@@ -102,7 +100,7 @@ import javax.validation.Valid;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

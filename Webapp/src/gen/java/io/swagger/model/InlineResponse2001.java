@@ -12,24 +12,24 @@
 
 package io.swagger.model;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.v3.oas.annotations.media.Schema;
-import javax.validation.constraints.*;
+
 import javax.validation.Valid;
+import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
- * InlineResponse4001
+ * InlineResponse2001
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2021-02-03T20:38:19.474Z[GMT]")public class InlineResponse4001   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2021-01-25T01:46:26.939Z[GMT]")public class InlineResponse2001   {
   @JsonProperty("validation")
   private Boolean validation = null;
 
-  @JsonProperty("validation-message")
-  private String validationMessage = null;
+  @JsonProperty("mortgage amount")
+  private BigDecimal mortgageAmount = null;
 
-  public InlineResponse4001 validation(Boolean validation) {
+  public InlineResponse2001 validation(Boolean validation) {
     this.validation = validation;
     return this;
   }
@@ -39,7 +39,7 @@ import javax.validation.Valid;
    * @return validation
    **/
   @JsonProperty("validation")
-  @Schema(example = "false", description = "")
+  @Schema(example = "true", description = "")
   public Boolean isValidation() {
     return validation;
   }
@@ -48,52 +48,53 @@ import javax.validation.Valid;
     this.validation = validation;
   }
 
-  public InlineResponse4001 validationMessage(String validationMessage) {
-    this.validationMessage = validationMessage;
+  public InlineResponse2001 mortgageAmount(BigDecimal mortgageAmount) {
+    this.mortgageAmount = mortgageAmount;
     return this;
   }
 
   /**
-   * Get validationMessage
-   * @return validationMessage
+   * Get mortgageAmount
+   * @return mortgageAmount
    **/
-  @JsonProperty("validation-message")
-  @Schema(example = "you entered wrong data", description = "")
-  public String getValidationMessage() {
-    return validationMessage;
+  @JsonProperty("mortgage amount")
+  @Schema(example = "154.55", description = "")
+  @Valid
+  public BigDecimal getMortgageAmount() {
+    return mortgageAmount;
   }
 
-  public void setValidationMessage(String validationMessage) {
-    this.validationMessage = validationMessage;
+  public void setMortgageAmount(BigDecimal mortgageAmount) {
+    this.mortgageAmount = mortgageAmount;
   }
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse4001 inlineResponse4001 = (InlineResponse4001) o;
-    return Objects.equals(this.validation, inlineResponse4001.validation) &&
-        Objects.equals(this.validationMessage, inlineResponse4001.validationMessage);
+    InlineResponse2001 inlineResponse2001 = (InlineResponse2001) o;
+    return Objects.equals(this.validation, inlineResponse2001.validation) &&
+        Objects.equals(this.mortgageAmount, inlineResponse2001.mortgageAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validation, validationMessage);
+    return Objects.hash(validation, mortgageAmount);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse4001 {\n");
+    sb.append("class InlineResponse2001 {\n");
     
     sb.append("    validation: ").append(toIndentedString(validation)).append("\n");
-    sb.append("    validationMessage: ").append(toIndentedString(validationMessage)).append("\n");
+    sb.append("    mortgageAmount: ").append(toIndentedString(mortgageAmount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -102,7 +103,7 @@ import javax.validation.Valid;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
