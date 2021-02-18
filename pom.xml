@@ -7,7 +7,7 @@
     <modules>
         <module>Dialogs</module>
         <module>Banking_functionality</module>
-        <module>Webapp</module>
+        <module>BankingUtilities_Webapp</module>
     </modules>
 
     <groupId>dev.andrylat</groupId>

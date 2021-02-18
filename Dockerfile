@@ -1,7 +1,15 @@
-FROM tomcat:latest
+FROM maven:3.6.3-jdk-8
+
+RUN mkdir /opt/app
+
+WORKDIR /opt/app
+
+COPY ./ /opt/app
+RUN mvn install
+
+WORKDIR /opt/app/BankingUtilities_Webapp
 
 EXPOSE 8085
 
-COPY Webapp/target/swagger-jaxrs-server-1.0.0.war /usr/local/tomcat/webapps/
+CMD ["mvn", "jetty:run-war"]
 
-CMD ["catalina.sh", "-run"]
