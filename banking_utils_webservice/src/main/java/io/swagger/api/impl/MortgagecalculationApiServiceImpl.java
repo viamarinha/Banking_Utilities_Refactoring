@@ -21,37 +21,50 @@ public class MortgagecalculationApiServiceImpl extends MortgagecalculationApiSer
 
         MortgagePayment mortgagePayment = new MortgagePaymentImpl();
         double paymentPeriodId;
-        System.err.println("Body = " + body);
         try {
-            PaymentPeriod paymentPeriod = body.getPayementPeriod();
-
-            if (paymentPeriod == PaymentPeriod.YEARLY) {
-                paymentPeriodId = 1;
-            } else if (paymentPeriod == PaymentPeriod.MONTHLY) {
-                paymentPeriodId = 2;
-            } else if (paymentPeriod == PaymentPeriod.WEEKLY) {
-                paymentPeriodId = 3;
-            } else {
-                throw new Exception("Your data have an incorrect format");
-            }
+            paymentPeriodId = getPaymentPeriodId(body);
         } catch (Exception ex) {
-            System.err.println("ex" + ex);
             InlineResponse4001 response = new InlineResponse4001();
             response.setValidation(false);
             response.setValidationMessage(ex.getMessage());
             return Response.status(Response.Status.BAD_REQUEST).entity(response).build();
-
         }
-        CustomerData customerData = new CustomerData(body.getPrincipalAmount(),
-                body.getInterestRate().doubleValue(), body.getTimeInYears(), paymentPeriodId);
 
-        mortgagePayment.setMortgageDetails(customerData);
-
-        mortgagePayment.paymentCalculation();
+        setDataForMortgageCalculation(body, mortgagePayment, paymentPeriodId);
 
         InlineResponse2001 response = new InlineResponse2001();
         response.setValidation(true);
         response.setMortgageAmount(BigDecimal.valueOf(mortgagePayment.getPayment()));
         return Response.ok().entity(response).build();
+    }
+
+    private void setDataForMortgageCalculation(MortgageCalculator body, MortgagePayment mortgagePayment, double paymentPeriodId) {
+        CustomerData customerData = getCustomerData(body, paymentPeriodId);
+
+        mortgagePayment.setMortgageDetails(customerData);
+
+        mortgagePayment.paymentCalculation();
+    }
+
+    private double getPaymentPeriodId(MortgageCalculator body) throws Exception {
+        double paymentPeriodId;
+        PaymentPeriod paymentPeriod = body.getPayementPeriod();
+
+        if (paymentPeriod == PaymentPeriod.YEARLY) {
+            paymentPeriodId = 1;
+        } else if (paymentPeriod == PaymentPeriod.MONTHLY) {
+            paymentPeriodId = 2;
+        } else if (paymentPeriod == PaymentPeriod.WEEKLY) {
+            paymentPeriodId = 3;
+        } else {
+            throw new Exception("Your data have an incorrect format");
+        }
+        return paymentPeriodId;
+    }
+
+    private CustomerData getCustomerData(MortgageCalculator body, double paymentPeriodId) {
+        CustomerData customerData = new CustomerData(body.getPrincipalAmount(),
+                body.getInterestRate().doubleValue(), body.getTimeInYears(), paymentPeriodId);
+        return customerData;
     }
 }

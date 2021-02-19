@@ -27,6 +27,10 @@ public class ValidationApiServiceImpl extends ValidationApiService {
             response.setValidationMessage(ex.getErrorList().iterator().next());
             return Response.status(Response.Status.BAD_REQUEST).entity(response).build();
         }
+        return getResponse(body);
+    }
+
+    private Response getResponse(Cardnumber body) {
         Integer firstNumber = Integer.parseInt(body.getCardnumber().substring(0, 1));
 
         InlineResponse200 response = new InlineResponse200();

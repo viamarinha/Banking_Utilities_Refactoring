@@ -7,7 +7,7 @@ WORKDIR /opt/app
 COPY ./ /opt/app
 RUN mvn install
 
-WORKDIR /opt/app/BankingUtilities_Webapp
+WORKDIR /opt/app/banking_utils_webservice
 
 EXPOSE 8085
 

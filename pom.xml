@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>Dialogs</module>
-        <module>Banking_functionality</module>
-        <module>BankingUtilities_Webapp</module>
+        <module>dialogs</module>
+        <module>banking_utils</module>
+        <module>banking_utils_webservice</module>
     </modules>
 
     <groupId>dev.andrylat</groupId>
