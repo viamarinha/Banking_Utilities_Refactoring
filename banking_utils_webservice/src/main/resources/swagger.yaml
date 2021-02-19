@@ -1,0 +1,128 @@
+openapi: 3.0.0
+info:
+  version: '1.00'
+  title: Banking Card Verification Api
+  description: Api for valid banking card verification and payment system definition
+tags:
+  - name: Banking System
+    description: Access to Banking System Utilities
+  - name: Mortgage Calculator
+    description: Access to Calculator  Mortgage rate
+paths:
+  /validation:
+    post:
+      tags:
+        - Banking System
+      requestBody:
+        description: Obtain information about Valid Credit  and payment system
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cardnumber'
+        required: true
+
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  validation:
+                    type: boolean
+                    example: true
+                  validation-message:
+                    type: string
+                    example: null
+                  cardtype:
+                    type: string
+                    example: American Express
+
+        400:
+          description: Invalid card number
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  validation:
+                    type: boolean
+                    example: false
+                  validation-message:
+                    type: string
+                    example: Too short number
+
+  /mortgagecalculation:
+    post:
+      tags:
+        - Mortgage Calculator
+      requestBody:
+        description: Obtain info about amount with customer choices
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MortgageCalculator'
+        required: true
+
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  validation:
+                    type: boolean
+                    example: true
+                  mortgage amount:
+                    type: number
+                    example: 154.55
+        400:
+          description: invalid data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  validation:
+                    type: boolean
+                    example: false
+                  validation-message:
+                    type: string
+                    example: you entered wrong data
+
+components:
+  schemas:
+    Cardnumber:
+      type: object
+      properties:
+        cardnumber:
+          type: string
+          example: 7877 9888 7744 4444
+
+    MortgageCalculator:
+      type: object
+      properties:
+        principal amount:
+          type: integer
+          example: 100000
+        interest rate:
+          type: number
+          example: 14.5
+        time in years:
+          type: integer
+          example: 1
+        payement period:
+          $ref: '#/components/schemas/PayementPeriod'
+
+    PayementPeriod:
+      type: string
+      enum: [ yearly, monthly, weekly ]
+      example: yearly , monthly, weekly
+
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/viamarinha/Dev_banking_system_api/1.00
